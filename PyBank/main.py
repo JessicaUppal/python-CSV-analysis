@@ -23,8 +23,7 @@ with open(csvpath, newline='') as csvfile:
     csv_header = next(csvreader)
     row = next(csvreader)
 
-
-# Calculate Total Number Of Months & Net Amount Of Profit/Losses
+# Calculate total number of months & net amount of Profit/Losses
     previous_row = int(row[1])
     total_months += 1
     net_amount += int(row[1])
@@ -34,9 +33,10 @@ with open(csvpath, newline='') as csvfile:
     # Loop through the data
     for row in csvreader:
         
-        # Calculate Total Number Of Months 
+        # Calculate total number of months 
         total_months += 1
-        # Calculate Net Amount Of "Profit/Losses" Over The Entire Period
+        
+        # Calculate net amount of "Profit/Losses" 
         net_amount += int(row[1])
 
         # Calculate change between the months
@@ -44,5 +44,28 @@ with open(csvpath, newline='') as csvfile:
         monthly_change.append(revenue_change)
         previous_row = int(row[1])
         month_count.append(row[0])
-
+        
+        # Calculate greatest increase in profits
+        if int(row[1]) > greatest_increase:
+            greatest_increase = int(row[1])
+            greatest_increase_month = row[0]
+            
+        # Calculate greatest decrease in profits
+        if int(row[1]) < greatest_decrease:
+            greatest_decrease = int(row[1])
+            greatest_decrease_month = row[0]  
+        
+    # Calculate the average change 
+    average_change = sum(monthly_change)/ len(monthly_change)
     
+    highest = max(monthly_change)
+    lowest = min(monthly_change)
+
+# Print Analysis
+print(f"Financial Analysis")
+print(f"---------------------------")
+print(f"Total Months: {total_months}")
+print(f"Total: ${net_amount}")
+print(f"Average Change: ${average_change:.2f}")
+print(f"Greatest Increase in Profits:, {greatest_increase_month}, (${highest})")
+print(f"Greatest Decrease in Profits:, {greatest_decrease_month}, (${lowest})")
