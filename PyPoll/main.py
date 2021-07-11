@@ -14,18 +14,13 @@ csvpath = os.path.join('.', 'Resources', 'election_data.csv')
 # Read the CSV file
 with open(csvpath, newline='') as csvfile:
 
-    # Import the CSV reader and split data on commas
     csvreader = csv.reader(csvfile, delimiter=',')
-    
-    # Read header row 
     csv_header = next(csvfile)
 
     for row in csvreader:
         
-        # Calculate total votes cast
         total_votes += 1
         
-        # Calculate candidates that recieved votes
         if (row[2] == "Khan"):
             khan_votes += 1
         elif (row[2] == "Correy"):
@@ -35,13 +30,13 @@ with open(csvpath, newline='') as csvfile:
         else:
             otooley_votes += 1
             
-    # Percentage of votes each candidate won
+    # Percentage of votes candidate won
     khan_percent = khan_votes / total_votes
     correy_percent = correy_votes / total_votes
     li_percent = li_votes / total_votes
     otooley_percent = otooley_votes / total_votes
     
-    # Winner of the election based on popular vote
+    # Winner of popular vote
     winner = max(khan_votes, correy_votes, li_votes, otooley_votes)
 
     if winner == khan_votes:
@@ -64,13 +59,10 @@ print(f"Winner: {winner_name}")
 
 # Specify file to write to
 output_file = os.path.join('.','analysis', 'election_data_analysis.text')
-
-# Open file using the "write" mode. 
 with open(output_file, 'w',) as txtfile:
 
-# Write new data to file
+# Write to file
     txtfile.write(f"Election Results\n")
-    txtfile.write(f"---------------------------\n")
     txtfile.write(f"Total Votes: {total_votes}\n")
     txtfile.write(f"Khan: {khan_percent:.3%}({khan_votes})\n")
     txtfile.write(f"Correy: {correy_percent:.3%}({correy_votes})\n")
