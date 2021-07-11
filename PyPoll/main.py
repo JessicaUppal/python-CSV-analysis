@@ -19,7 +19,8 @@ with open(csvpath, newline='') as csvfile:
     
     # Read header row 
     csv_header = next(csvfile)
-for row in csvreader:
+
+    for row in csvreader:
         
         # Calculate total votes cast
         total_votes += 1
@@ -55,10 +56,24 @@ for row in csvreader:
 # Print analysis
 print(f"Election Results")
 print(f"Total Votes: {total_votes}")
-print(f"Kahn: {kahn_percent:.3%}({khan_votes})")
+print(f"Khan: {khan_percent:.3%}({khan_votes})")
 print(f"Correy: {correy_percent:.3%}({correy_votes})")
 print(f"Li: {li_percent:.3%}({li_votes})")
 print(f"O'Tooley: {otooley_percent:.3%}({otooley_votes})")
 print(f"Winner: {winner_name}")
 
+# Specify file to write to
+output_file = os.path.join('.','analysis', 'election_data_analysis.text')
 
+# Open file using the "write" mode. 
+with open(output_file, 'w',) as txtfile:
+
+# Write new data to file
+    txtfile.write(f"Election Results\n")
+    txtfile.write(f"---------------------------\n")
+    txtfile.write(f"Total Votes: {total_votes}\n")
+    txtfile.write(f"Khan: {khan_percent:.3%}({khan_votes})\n")
+    txtfile.write(f"Correy: {correy_percent:.3%}({correy_votes})\n")
+    txtfile.write(f"Li: {li_percent:.3%}({li_votes})\n")
+    txtfile.write(f"O'Tooley: {otooley_percent:.3%}({otooley_votes})\n")
+    txtfile.write(f"Winner: {winner_name}\n")
