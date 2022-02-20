@@ -1,6 +1,10 @@
-Python challenge 
+# Python CSV Analysis 
 
-PyBank
+
+![Python Script](readme_image.png)
+
+
+## PyBank
 
 
 
@@ -18,7 +22,7 @@ The task is to create a Python script that analyses the records to calculate eac
 * The greatest decrease in profits (date and amount) over the entire period
 
 
-PyPoll
+## PyPoll
 
 
 
