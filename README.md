@@ -8,7 +8,7 @@
 
 
 
-This challenge, involves creating a Python script for analysing the financial records of your company. The dataset is composed of two columns: `Date` and `Profit/Losses`. 
+I created a Python script for analysing the financial records of a company. The dataset is composed of two columns: `Date` and `Profit/Losses`. 
 The task is to create a Python script that analyses the records to calculate each of the following:
 
 * The total number of months included in the dataset
@@ -27,7 +27,7 @@ The task is to create a Python script that analyses the records to calculate eac
 
 
 
-This challenge, involves helping a small, rural town modernise its vote counting process. The dataset is composed of three columns: `Voter ID`, `County`, and `Candidate`. The task is to create a Python script that analyses the votes and calculates each of the following:
+I created a python script to modernise vote counting processes. The dataset is composed of three columns: `Voter ID`, `County`, and `Candidate`. The task is to create a Python script that analyses the votes and calculates each of the following:
 
 * The total number of votes cast
 
